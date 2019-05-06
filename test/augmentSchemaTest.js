@@ -856,6 +856,10 @@ input strInput {
   strArg: String
 }
 
+type Subscription {
+  shouldBeIgnored: String
+}
+
 type TemporalNode {
   datetime: _Neo4jDateTime
   name: String

@@ -245,6 +245,10 @@ export const testSchema = `
   type ignoredType {
     ignoredField: String @neo4j_ignore
   }
+  
+  type Subscription {
+    shouldBeIgnored: String
+  }
 
   scalar Time
   scalar Date

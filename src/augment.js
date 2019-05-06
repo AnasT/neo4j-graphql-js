@@ -145,6 +145,13 @@ const extractFieldResolversFromSchemaType = type => {
           if (fields[t].resolve !== undefined) {
             acc[t] = fields[t].resolve;
           }
+
+          if (fields[t].subscribe !== undefined) {
+            acc[t] = {
+              subscribe: fields[t].subscribe,
+              resolve: fields[t].resolve
+            };
+          }
           return acc;
         }, {})
       : undefined;

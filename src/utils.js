@@ -1041,10 +1041,11 @@ export const excludeIgnoredTypes = (typeMap, config = {}) => {
   // Add any ignored types to exclusion arrays
   Object.keys(typeMap).forEach(name => {
     if (
-      typeMap[name].fields &&
-      !typeMap[name].fields.find(
-        field => !getFieldDirective(field, 'neo4j_ignore')
-      )
+      name === 'Subscription' ||
+      (typeMap[name].fields &&
+        !typeMap[name].fields.find(
+          field => !getFieldDirective(field, 'neo4j_ignore')
+        ))
     ) {
       // All fields are ignored, so exclude the type
       excludedQueries.push(name);
